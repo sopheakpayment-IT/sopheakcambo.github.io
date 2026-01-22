@@ -1,79 +1,51 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>User Profile</title>
-  <link rel="stylesheet" href="assets/css/profile.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Vision - Creative Mood Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient 8s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
 </head>
 <body>
-  <main class="container">
-    <section class="profile-card" id="profileCard" aria-live="polite">
-      <div class="avatar-wrap">
-        <img id="avatarImg" src="" alt="User avatar" class="avatar" />
-      </div>
-      <div class="info">
-        <h1 id="fullName">Full Name</h1>
-        <p id="role" class="muted">Role • Company</p>
-        <p id="bio" class="bio">Short bio goes here.</p>
-
-        <ul class="meta">
-          <li>Email: <span id="email">—</span></li>
-          <li>Location: <span id="location">—</span></li>
-          <li>Website: <a id="website" href="#" target="_blank" rel="noopener noreferrer">—</a></li>
-        </ul>
-
-        <div class="actions">
-          <button id="editBtn" class="btn">Edit profile</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="profile-edit hidden" id="profileEdit" aria-hidden="true">
-      <form id="profileForm" autocomplete="off">
-        <label>
-          Avatar
-          <input id="avatarInput" name="avatar" type="file" accept="image/*" />
-        </label>
-
-        <label>
-          Full name
-          <input id="inputFullName" name="fullName" type="text" required />
-        </label>
-
-        <label>
-          Role / Company
-          <input id="inputRole" name="role" type="text" />
-        </label>
-
-        <label>
-          Bio
-          <textarea id="inputBio" name="bio" rows="3"></textarea>
-        </label>
-
-        <label>
-          Email
-          <input id="inputEmail" name="email" type="email" />
-        </label>
-
-        <label>
-          Location
-          <input id="inputLocation" name="location" type="text" />
-        </label>
-
-        <label>
-          Website
-          <input id="inputWebsite" name="website" type="url" />
-        </label>
-
-        <div class="form-actions">
-          <button type="submit" class="btn primary">Save</button>
-          <button type="button" id="cancelBtn" class="btn">Cancel</button>
-        </div>
-      </form>
-    </section>
-  </main>
-
-  <script src="assets/js/profile.js"></script>
+    <div id="root"></div>
 </body>
 </html>
