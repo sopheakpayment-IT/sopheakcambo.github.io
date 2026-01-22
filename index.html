@@ -1,29 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sopheak</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Profile</title>
+  <link rel="stylesheet" href="assets/css/profile.css" />
 </head>
 <body>
+  <main class="container">
+    <section class="profile-card" id="profileCard" aria-live="polite">
+      <div class="avatar-wrap">
+        <img id="avatarImg" src="" alt="User avatar" class="avatar" />
+      </div>
+      <div class="info">
+        <h1 id="fullName">Full Name</h1>
+        <p id="role" class="muted">Role • Company</p>
+        <p id="bio" class="bio">Short bio goes here.</p>
 
-<header>
-  <h1>Sopheak IT </h1>
-  <p>Web Developer | IT Instructor</p>
-  <button id="themeToggle">Toggle Theme</button>
-</header>
+        <ul class="meta">
+          <li>Email: <span id="email">—</span></li>
+          <li>Location: <span id="location">—</span></li>
+          <li>Website: <a id="website" href="#" target="_blank" rel="noopener noreferrer">—</a></li>
+        </ul>
 
-<section class="card">
-  <h2>About Me</h2>
-  <p>Professional IT educator and developer.</p>
-</section>
+        <div class="actions">
+          <button id="editBtn" class="btn">Edit profile</button>
+        </div>
+      </div>
+    </section>
 
-<section class="card">
-  <h2>Backend Data</h2>
-  <button onclick="loadData()">Load from API</button>
-  <pre id="output"></pre>
-</section>
+    <section class="profile-edit hidden" id="profileEdit" aria-hidden="true">
+      <form id="profileForm" autocomplete="off">
+        <label>
+          Avatar
+          <input id="avatarInput" name="avatar" type="file" accept="image/*" />
+        </label>
 
-<script src="script.js"></script>
+        <label>
+          Full name
+          <input id="inputFullName" name="fullName" type="text" required />
+        </label>
+
+        <label>
+          Role / Company
+          <input id="inputRole" name="role" type="text" />
+        </label>
+
+        <label>
+          Bio
+          <textarea id="inputBio" name="bio" rows="3"></textarea>
+        </label>
+
+        <label>
+          Email
+          <input id="inputEmail" name="email" type="email" />
+        </label>
+
+        <label>
+          Location
+          <input id="inputLocation" name="location" type="text" />
+        </label>
+
+        <label>
+          Website
+          <input id="inputWebsite" name="website" type="url" />
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Save</button>
+          <button type="button" id="cancelBtn" class="btn">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="assets/js/profile.js"></script>
 </body>
 </html>
