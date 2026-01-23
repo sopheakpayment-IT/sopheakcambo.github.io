@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+----------------------------------
 <head>
     <meta charset="utf-8">
     <title>Sopheak IT - Electronics Website </title>
@@ -30,7 +30,95 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Picture Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
+        .profile-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #007bff;
+            margin-bottom: 15px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-card">
+    <img id="profileImage" class="profile-img" src="https://via.placeholder.com/150" alt="Profile">
+    <br>
+    <label class="btn">
+        Choose Picture
+        <input type="file" id="imageInput" accept="image/*">
+    </label>
+</div>
+
+<script>
+    const imageInput = document.getElementById("imageInput");
+    const profileImage = document.getElementById("profileImage");
+
+    // Load saved image
+    const savedImage = localStorage.getItem("profileImage");
+    if (savedImage) {
+        profileImage.src = savedImage;
+    }
+
+    imageInput.addEventListener("change", function () {
+        const file = this.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function () {
+            profileImage.src = reader.result;
+            localStorage.setItem("profileImage", reader.result);
+        };
+        reader.readAsDataURL(file);
+    });
+</script>
+
+</body>
+</html>
+---------------------------------------------------------
 <body>
 
     <!-- Spinner Start -->
